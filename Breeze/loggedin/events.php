@@ -1,4 +1,6 @@
-<?php include_once '../includes/employeeDB.php'; include_once '../includes/functions.php'; ?>
+<?php
+	include_once '../includes/employeeDB.php'; include_once '../includes/functions.php'; 
+?>
 
 <!DOCTYPE html>
 <html lang="en">

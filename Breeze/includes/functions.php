@@ -64,7 +64,7 @@ function createUser($conn1, $newname, $newuser, $prehash) {
 	$stmt = mysqli_stmt_init($conn1);
 //------error handle for stmt-------//
 	if (!mysqli_stmt_prepare($stmt,$sql)) {
-		header("location: ../errors.php?error=CreateUserStmtFailed");
+		header("location: ../../errors.php?error=CreateUserStmtFailed");
 		exit();
 	} // hash the password  for db storage
 	$hashpass = password_hash($prehash, PASSWORD_DEFAULT);
@@ -72,7 +72,7 @@ function createUser($conn1, $newname, $newuser, $prehash) {
 	mysqli_stmt_bind_param($stmt, "sss", $newname, $newuser, $hashpass);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../loggedin/employees.php?status=UpdatedSuccessfully");
+	header("location: ../../loggedin/employees.php?status=UpdatedSuccessfully");
 }	//--- Update Existing Entry  ---\\    //
 // ------------//|\\---------------\\ // check for empty inputs
 function emptyUpdateField($EmployeeID, $EmployeeName, $EmployeeUsername) {
@@ -87,7 +87,7 @@ function checkEID($conn1, $EmployeeID) {
 	$sql = "SELECT * FROM Employees WHERE EmployeeID = ?;";
 	$stmt = mysqli_stmt_init($conn1);
 	//------------------------------ prepare
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../errors.php?error=checkEIDstmtfail");exit();}
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../errors.php?error=checkEIDstmtfail");exit();}
 	//------------------------------ bind/execute	
 	mysqli_stmt_bind_param($stmt, "i", $EmployeeID);
 	mysqli_stmt_execute($stmt);
@@ -109,7 +109,7 @@ function editEmployee($conn1, $EmployeeName, $EmployeeUsername, $EIDint) {
 	mysqli_stmt_bind_param($stmt, "ssi", $EmployeeName, $EmployeeUsername, $EIDint);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../loggedin/employees.php");
+	header("location: ../../loggedin/employees.php");
 }
 
 function deleteEmployee($conn1, $EIDint) {
@@ -122,7 +122,7 @@ function deleteEmployee($conn1, $EIDint) {
 	mysqli_stmt_bind_param($stmt, "i", $EIDint);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../loggedin/employees.php");
+	header("location: ../../loggedin/employees.php");
 }
 
 //--------------------------------------------------------------------------------------------//

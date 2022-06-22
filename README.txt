@@ -1,5 +1,5 @@
 ################################### TO DO #####################################
-Barebones & SHOULD BE DONE but much needs done before production
+Barebones & SHOULD BE DONE before production
 
 -Modify pages to be used properly logged in
 -Finish building the front-end

@@ -27,11 +27,7 @@ features and functionality to suit your use cases. Contact me for estimates.
 #											  	 TO DO BEFORE PRODUCTION                            #
 ###############################################################################
 
--Modify pages to be used properly logged in
 -style index.html
--Finish the error page
--fix hide/delete mixup
--add "Are You Sure" prompts
 -Security analysis, both full breakdown and peer review
 
 -------------------------------------------------------------------------------
@@ -60,6 +56,8 @@ features and functionality to suit your use cases. Contact me for estimates.
 #              Quality of Life/Optimization/Polishing/Maintenance             #
 ###############################################################################
 
--Format Dates/Times for view on website
 -Add more/better Error Handling
+-Format Dates/Times for view on website
 -Finish building the front-end
+-Finish the error page
+-add "Are You Sure" prompts

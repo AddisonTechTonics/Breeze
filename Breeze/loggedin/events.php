@@ -1,5 +1,8 @@
 <?php
 	include_once '../includes/employeeDB.php'; include_once '../includes/functions.php'; 
+	$loggedinuser = $_SESSION["user"];
+	if (!$loggedinuser) {header("location: ../index.html?didntlogin");}
+	if ($loggedinuser !== "ahh") {header("location: home.php");} //----- Restrict to Admin Access -----//
 ?>
 
 <!DOCTYPE html>

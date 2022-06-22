@@ -36,7 +36,7 @@ function userLogin($conn1,$userinput,$passinput) {
 	else if ($checkpass === true) { // if true, start session with two session variables
 		session_start();
 		$_SESSION["userid"] = $userExists["EmployeeID"];
-		$_SESSION["user"] = $userExists["Username"];
+		$_SESSION["user"] = $userExists["EmployeeUsername"];
 		header("location: ../loggedin/home.php"); // redirect to logged in home page
 	}
 }

@@ -27,12 +27,12 @@ features and functionality to suit your use cases. Contact me for estimates.
 #											  	 TO DO BEFORE PRODUCTION                            #
 ###############################################################################
 
--Security analysis, both full breakdown and peer review
 -Modify pages to be used properly logged in
 -style index.html
 -Finish the error page
 -fix hide/delete mixup
 -add "Are You Sure" prompts
+-Security analysis, both full breakdown and peer review
 
 -------------------------------------------------------------------------------
                                 v2 plans

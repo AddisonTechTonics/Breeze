@@ -28,7 +28,6 @@ features and functionality to suit your use cases. Contact me for estimates.
 ###############################################################################
 
 -format date & time for easy viewing and ensure list is correctly ordered by date
--style index.html
 -Security analysis, both full breakdown and peer review
 
 -------------------------------------------------------------------------------

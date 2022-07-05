@@ -1,8 +1,6 @@
-<?php session_start();
-	include_once '../includes/employeeDB.php'; include_once '../includes/functions.php'; 
-	$loggedinuser = $_SESSION["user"];
-	if (!$loggedinuser) {header("location: ../index.html?didntlogin");}
-	if ($loggedinuser !== "ahh") {header("location: home.php");} //----- Restrict to Admin Access -----//
+<?php session_start(); 		 //----- Restrict to Admin Access -----//
+	if ($_SESSION['user'] !== "ahh") {header("location: time-off-req.php");}
+	else {include_once '../includes/employeeDB.php'; include_once '../includes/functions.php';}
 ?>
 
 <!DOCTYPE html>
@@ -92,7 +90,7 @@
 	<div class="spacer"></div>
 
 	<div class="hide"> <!-- ---------------Delete Existing Event--------------- -->
-		<h3>Hide Event</h3>
+		<h3>Hide Event (Mark Complete)</h3>
 		<div class="spacer"></div>
 		<form action="../phpscripts/schedule/deleteEvent.php" method="post">
 			<input type="number" name="ApptIDstring" placeholder="Enter Appt ID...">

@@ -1,8 +1,6 @@
-<?php session_start();
-	include_once '../includes/employeeDB.php';include_once '../includes/functions.php';
-	$loggedinuser = $_SESSION["user"];
-	if (!$loggedinuser) {header("location: ../index.html?didntlogin");}
-	if ($loggedinuser !== "ahh") {header("location: home.php");} //----- Restrict to Admin Access -----//
+<?php session_start(); // Start session , add includes and redirect if access denied to user \\
+	if ($_SESSION['user'] !== "ahh") {header("location: employeeprofile.php");} 
+	else {include_once '../includes/employeeDB.php'; include_once '../includes/functions.php';}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +14,7 @@
 </head>
 <body>
 
-	<div class="navbar">
+	<div class="navbar">  <!-- ---------- Navbar ----------- -->
 		<ul class="navitems">
 			<li><a href="events.php">Manage Jobs</a></li>
 			<li><a href="home.php">Home</a></li>
@@ -26,7 +24,7 @@
 
 	<div class="spacer"></div>
 
-	<div class="list"> <!--Pull Employee List-->
+	<div class="list"> <!--Pull Employee Table from Database-->
 	<h1>List View</h1>
 	<div class="spacer"></div>
 		<?php

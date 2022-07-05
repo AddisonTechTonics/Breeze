@@ -1,5 +1,7 @@
-<?php  // session_start();
-	include_once '../../includes/employeeDB.php'; include_once '../../includes/functions.php';
+<?php session_start();
+if ($_SESSION['user'] === "ahh") {
+	include_once '../../includes/employeeDB.php'; 
+	include_once '../../includes/functions.php';
 	
 //	$loggedinuser = $_SESSION["user"];
 	//if (!$loggedinuser) {header("location: ../index.html?didntlogin");}
@@ -25,3 +27,5 @@ if (userExists($conn1, $newuser) !== false) {
 echo 'all handles passed'; // ---
 
 createUser($conn1,$newname,$newuser,$prehash);
+
+} else {header('location: ../errors.php?error=AccessDenied');}

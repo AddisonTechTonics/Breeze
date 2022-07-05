@@ -14,18 +14,23 @@
  
 -This version is basically a template. It's to include basic and universal 
 functionalities that cover a wide range of business & management tasks. I hope 
-to grow and evolve it if used.
+to grow and evolve it as my skills advance. V2 Plans listed below.
 
--The code is completely free to use how seen fit, built to work with LAMP 
-stack. Requires php 8 or above. If desired, contact me and I can assist initial 
-setup/deployment for private use. (for a small, one-time charge)
+-The code is completely free to use how seen fit, built to work with LAMP stack.
+Requires php 8 or above. If desired, contact me and I can assist initial setup 
+or deployment for public or private use. (possible small, one-time charge if I 
+deem it necessary)
 
 -I will design custom features and functionality to suit client needs. Will 
 charge below-market rates for small businesses, nonprofits, or other types of
-non-megacorporations aiming to benefit society. Contact me for estimates.
+non-megacorporations. I want to help those who are working to benefit society. 
+Contact me for estimates.
 
--Not looking for contributors at this point in time, but i am not against 
-adding the right security specialist if the stars ever align for it.
+-Not looking for contributors at this point in time, but I am not against adding
+the right front-end designer or security specialist if the stars align for it.
+
+-Expect 1.0.0 to be released after an in-depth code review, polishing, security 
+audit, and some much-needed reorganization.
 
 ##                       #############################                        ##
 ################################################################################                                                   
@@ -33,17 +38,23 @@ adding the right security specialist if the stars ever align for it.
 ################################################################################
 ##                       #############################                        ##
                           
--Must log-in with a valid username and password to access the web-app
+-Employees and managers are allowed their access level after username/password
+login. Employees redirected to personal pages when routing through the navbar.
+-Prepared statements used for all user-input queries to prevent SQL Injection.
+-Only password hashes are stored in MySQL database. Extra precautions should be
+taken while securing production server & database. (Especially while Breeze is
+evolving into payroll/tax-prep services)
 
--Admin can access 'Employee' page to view, add, edit, and delete users inside
-the 'Employees' table (While properly connected to MySQL database)
--Admin can acces 'Event' page to view, add, edit, and delete events inside
-the 'Events' table (While properly connected)
+-Employees can log in and view Event schedule on the home page. If they click 
+on 'Manage Employees' they are sent to a user profile feature currently in-
+development. Manage Schedule as well, will send them to a time-off request
+subpage also in-development.
+-Admins can log in and access the employee/login table and the appointments 
+table, and are able to add/edit/delete entries to either page as the need
+arises. Full CRUD functionality as it stands.
 
--Employees can log in and view Event schedule on the home page (Right now 
-employees can edit/modify employees and events... soon to be fixed)
-
--stay logged in until timeout or exit
+-All functionality rests on being properly configured to a server and a MySQL 
+database.
 
 ##                       ################################                     ##
 ################################################################################                                                   
@@ -51,8 +62,6 @@ employees can edit/modify employees and events... soon to be fixed)
 ################################################################################
 ##                       ################################                     ##
 
--Limit page access for employees. Make it to where employees can see schedule,
-but only managers can add/edit events and users in their respective databases.
 -Security analysis, both full breakdown and peer-review
 
 ##                            ###################                            ##
@@ -61,12 +70,12 @@ but only managers can add/edit events and users in their respective databases.
 ###############################################################################
 ##                            ###################                            ##
 
--Give each employee a unique schedule that can only be seen under their login
-or by a manager.
+#### Redesign DB Structure to revolve around tax-prep and document storage ####
 
--Redesign DB Structure to revolve around tax-prep and document storage
+-Give each employee a unique schedule, set by managers and can only be viewed 
+by them or the employee it's assigned to.
 -add timeclock functionality
--add payroll info & calculation functionality
+-add payroll info & basic calculation functionality
 -output formatted tax documents, and store them securely
 
 -More robust event system (true delete, multi-day event grouping, job status, 

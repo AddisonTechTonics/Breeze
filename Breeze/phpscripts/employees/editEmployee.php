@@ -1,5 +1,5 @@
-<?php 
-if (isset($_POST['submitupdate'])) {
+<?php session_start();
+if ($_SESSION['user'] === "ahh") {
 	include_once '../../includes/employeeDB.php';
 	include_once '../../includes/functions.php';
 
@@ -18,4 +18,4 @@ if (isset($_POST['submitupdate'])) {
 	// ---------- Update Employee Record ---------- //
 	editEmployee($conn1,$EmployeeName,$EmployeeUsername, $EIDint);
 
-} else {header('location: ../errors.php?error=attemptedHAX');}
+} else {header('location: ../errors.php?error=AccessDenied');}

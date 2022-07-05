@@ -1,7 +1,7 @@
 <?php
 
-	include_once '../includes/employeeDB.php';
-	include_once '../includes/functions.php';
+	include_once '../../includes/employeeDB.php';
+	include_once '../../includes/functions.php';
 	$EmployeeID = $_POST['EIDelete'];
 	$EIDint = (int)$EmployeeID;
 

@@ -1,7 +1,7 @@
 <?php 
 if (isset($_POST['submitupdate'])) {
-	include_once '../includes/employeeDB.php';
-	include_once '../includes/functions.php';
+	include_once '../../includes/employeeDB.php';
+	include_once '../../includes/functions.php';
 
 	$EmployeeID = $_POST["EmployeeID"];
 	$EmployeeName = $_POST["EmployeeName"];

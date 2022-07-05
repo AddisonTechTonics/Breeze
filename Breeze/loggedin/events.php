@@ -80,7 +80,7 @@
 		<h3>Update Event</h3>
 		<div class="spacer"></div>
 		<form action="../phpscripts/schedule/editEvent.php" method="post">
-			<input type="number" name="selectAppt" placeholder="Enter Appt ID...">
+			<input type="number" name="selectAppt" min="0" step="1" placeholder="Enter Appt ID...">
 			<input type="text" name="editCustomer" placeholder="Edit Customer Name...">
 			<input type="date" name="editDate" placeholder="Edit Date...">
 			<input type="time" name="editTime" placeholder="Edit Time...">

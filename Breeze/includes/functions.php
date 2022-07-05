@@ -11,16 +11,16 @@ function emptyUserLogin($userinput, $passinput) {
 function userExists($conn1, $userinput) {
 	$sql = "SELECT * FROM Employees WHERE EmployeeUsername = ?;";
 	$stmt = mysqli_stmt_init($conn1);
-//handle prepare error
+ //handle prepare error
 	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../errors.php?error=stmtfail");exit();}	
-// bind, execute and store in $resultData
+ // bind, execute and store in $resultData
 	mysqli_stmt_bind_param($stmt, "s", $userinput);
 	mysqli_stmt_execute($stmt);
 	$resultData = mysqli_stmt_get_result($stmt);
-// create $row as an assoc array of $resultData aka statement result
+ // create $row as an assoc array of $resultData aka statement result
 	if ($row = mysqli_fetch_assoc($resultData)) {return $row;}
 	else {$result = false;return $result;}
-// close
+ // close
 	mysqli_stmt_close($stmt);
 } 
 
@@ -139,11 +139,13 @@ function createEvent($conn1, $customer, $dateformat, $timeformat, $address) {
 	header("location: ../../loggedin/events.php");
 }
 
-function editEvent($conn1, $customer, $dateformat, $timeformat, $address, $apptInt) {
+function editEvent($conn1, $customer, $dateformat, $timeformat, $address, $selectedAppt) {
 	$sql = "UPDATE Appointments SET Customer = ?, ApptDate = ?, ApptTime = ?, ApptAddress = ? WHERE ApptID = ?;";
 	$stmt = mysqli_stmt_init($conn1);
+
 	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../errors.php?error=editEventStmtFail");}
-	mysqli_stmt_bind_param($stmt, "ssssi", $customer, $dateformat, $timeformat, $address, $apptInt);
+
+	mysqli_stmt_bind_param($stmt, "ssssi", $customer, $dateformat, $timeformat, $address, $selectedAppt);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
 	header("location: ../../loggedin/events.php");

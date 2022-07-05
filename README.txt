@@ -24,7 +24,7 @@ features and functionality to suit your use cases. Contact me for estimates.
 -stay logged in until timeout or exit
 
 ###############################################################################                                                   
-#											  	 TO DO BEFORE PRODUCTION                            #
+#                          TO DO BEFORE PRODUCTION                            #
 ###############################################################################
 
 -style index.html

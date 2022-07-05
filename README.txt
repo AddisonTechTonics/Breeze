@@ -23,7 +23,7 @@ features and functionality to suit your use cases. Contact me for estimates.
 -users can view events and associated info after valid login
 -stay logged in until timeout or exit
 
-###############################################################################
+###############################################################################                                                   
 #											  	 TO DO BEFORE PRODUCTION                            #
 ###############################################################################
 

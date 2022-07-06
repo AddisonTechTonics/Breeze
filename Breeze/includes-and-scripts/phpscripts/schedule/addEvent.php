@@ -1,4 +1,4 @@
-<?php include_once '../../includes/employeeDB.php'; include_once '../../includes/functions.php';
+<?php include_once '../../employeeDB.php'; include_once '../../functions.php';
 
 $customer = $_POST['newEvent'];
 $date = $_POST['newDate'];

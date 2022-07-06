@@ -1,5 +1,5 @@
 <?php session_start();
-	if ($_SESSION['user'] !== "ahh") {header('location: ../../../public/home.php');}
+	if ($_SESSION['user'] !== "ahh") {header('location: ../../../public/loggedin/home.php');}
 	else {
 		include_once '../../employeeDB.php'; 
 		include_once '../../functions.php';

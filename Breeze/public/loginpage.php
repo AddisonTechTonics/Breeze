@@ -1,6 +1,3 @@
-<!-- Breeze/public/index.html 
-		 /home/traplords8n/VSCode/BreezeRepository/BreezeWebsite/Breeze/public/index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

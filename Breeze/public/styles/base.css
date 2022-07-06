@@ -50,11 +50,5 @@ body {
 	            radial-gradient(ellipse at bottom left, #4f145e, transparent 100%);
 } #link1, #link1:visited {text-decoration: none;}
 
-
-
-
-.loginbox {
-	text-align: center;
-	margin-top: 10%;
-
-}
+/* ############## Login Styles ################ */
+.loginbox {text-align: center; margin-top: 10%;}

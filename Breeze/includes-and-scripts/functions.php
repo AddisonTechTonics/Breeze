@@ -37,7 +37,7 @@ function userLogin($conn1,$userinput,$passinput) {
 		session_start();
 		$_SESSION["userid"] = $userExists["EmployeeID"];
 		$_SESSION["user"] = $userExists["EmployeeUsername"];
-		header("location: loggedin/home.php"); // redirect to logged in home page
+		header("location: ../../public/loggedin/home.php"); // redirect to logged in home page
 	}
 }
 // -------- Add Employee Error Handles ------- // fn called in phpscripts/addemployee.php

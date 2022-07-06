@@ -1,7 +1,8 @@
 <?php session_start();
-	include_once '../includes/employeeDB.php'; include_once '../includes/functions.php'; 
+	include_once '../../includes-and-scripts/employeeDB.php'; 
+	include_once '../../includes-and-scripts/functions.php'; 
 	$loggedinuser = $_SESSION["user"];
-	if (!$loggedinuser) {header("location: ../index.html?didntlogin");}
+	if (!$loggedinuser) {header("location: ../index.html?error=didntlogin");}
 ?>
 
 <!DOCTYPE html>
@@ -24,6 +25,7 @@
 	</div>									 	<!-- ------------------Navbar------------------ -->
 
 	<div class="list">
+		<?php echo '<h1>Welcome, '.($loggedinuser).'</h1>' ?>
 		<h1>List View</h1>
 		<div class="spacer"></div>
 		<?php  //------------------ Pull list of Active Appointments from DB ----------------------//

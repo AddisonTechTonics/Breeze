@@ -1,0 +1,60 @@
+body {
+	background: #00b4ff;
+	color: #222;
+	font: 100% Arial, Sans Serif;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	overflow-x: hidden;
+}
+/*             ############            ############            ############            */
+/* ############            ###########   Nav-bar  ############            ############ */
+/*             ############            ############            ############            */
+.navbar {
+	margin: 12px 12px 0 12px;
+	padding: 6px 6px; 
+	border-radius: 20px;
+	background: radial-gradient(ellipse at top right, #2826b8, transparent 100%),
+	radial-gradient(ellipse at bottom left, #4f145e, transparent 100%);
+}
+
+.navitems {display: flex; padding: 4px 20px; justify-content: space-evenly;} 
+
+.navbar > ul > li {list-style: none; min-width: 140px; padding: 6px 6px; background: radial-gradient(ellipse at 50% 50%,
+	rgba(112, 233, 122, 0.596) 50%, rgba(219, 65, 54, 0.651)); border-radius: 20px; text-align: center;} 
+
+.navbar > ul > li > a, .navbar > ul > li > a:visited {color: rgb(88, 2, 45); text-decoration: none;}
+.navbar > ul > .active {background-color: rgba(20, 47, 136, 0.678);} .active {color:whitesmoke;}
+
+/* <><><> ############# <><><> ###################### <><><> ############# <><><> */
+/* ##### >< >< >< >< ><  #### General/Re-usable Styles ####  >< >< >< >< >< ##### */
+/* <><><> ############# <><><> ###################### <><><> ############# <><><> */
+
+.flexcontainer {display: flex; flex-direction: column; width: -moz-available; margin: 0px 12px; align-items: center;}
+
+#welcome {
+	text-align: center;
+	margin-right: 56px; 
+	padding: 8px 6px;
+	border-radius: 20px;
+	color: rgb(88, 2, 45);
+	background: radial-gradient(ellipse at 50% 50%, rgba(112, 233, 122, 0.596) 50%, rgba(219, 65, 54, 0.651));
+}
+
+#loginlink {width: inherit; position: absolute; margin-right: 48px; bottom: 0%;}
+ 
+#link1 {display: table; padding: 8px 6px; border-radius: 20px; text-align: center; margin-left: auto;
+	margin-right: auto; width: 270px; color: rgb(138, 53, 95); 
+
+	background: radial-gradient(ellipse at top right, #2826b8, transparent 100%),
+	            radial-gradient(ellipse at bottom left, #4f145e, transparent 100%);
+} #link1, #link1:visited {text-decoration: none;}
+
+
+
+
+.loginbox {
+	text-align: center;
+	margin-top: 10%;
+
+}

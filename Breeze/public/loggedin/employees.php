@@ -1,6 +1,9 @@
 <?php session_start(); // Start session , add includes and redirect if access denied to user \\
-	if ($_SESSION['user'] !== "ahh") {header("location: employeeprofile.php");} 
-	else {include_once '../includes/employeeDB.php'; include_once '../includes/functions.php';}
+	if ($_SESSION['user'] !== "ahh") {header("location: user-profile.php");} 
+	else {
+		include_once '../../includes-and-scripts/employeeDB.php'; 
+		include_once '../../includes-and-scripts/functions.php';
+	}
 ?>
 
 <!DOCTYPE html>
@@ -64,7 +67,7 @@
 	<div class="add">
 		<h3>Add New Employee</h3>
 		<div class="spacer"></div>
-		<form action="../phpscripts/employees/addemployee.php" method="post">
+		<form action="../../includes-and-scripts/phpscripts/employees/addemployee.php" method="post">
 			<input type="text" name="newname" id="newEmpName" placeholder="Enter Employee Name...">
 			<input type="text" name="newuser" id="newUsername" placeholder="Enter Employee Username...">
 			<input type="password" name="prehash" id="newPassword" placeholder="Enter Employee Password...">
@@ -78,7 +81,7 @@
 	<div class="edit">
 		<h3>Update Existing Entry</h3>
 		<div class="spacer"></div>
-		<form action="../phpscripts/employees/editEmployee.php" method="post">
+		<form action="../../includes-and-scripts/phpscripts/employees/editEmployee.php" method="post">
 			<input type="number" name="EmployeeID" min="0" step="1" placeholder="Enter EID...">
 			<input type="text" name="EmployeeName" id="empname" placeholder="Enter Employee Name...">
 			<input type="text" name="EmployeeUsername" placeholder="Enter Desired Username">
@@ -91,7 +94,7 @@
 	<div class="hide">
 		<h3>Delete Employee From Database</h3>
 		<div class="spacer"></div>
-		<form action="../phpscripts/employees/deleteEmployee.php" method="post">
+		<form action="../../includes-and-scripts/phpscripts/employees/deleteEmployee.php" method="post">
 			<input type="number" name="EIDelete" placeholder="Select ...">
 			<!-- ---------- Are you sure prompt ---------- -->
 			<button type="submit" name="submitdelete">Submit</button>

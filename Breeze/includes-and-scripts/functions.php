@@ -12,7 +12,7 @@ function userExists($conn1, $userinput) {
 	$sql = "SELECT * FROM Employees WHERE EmployeeUsername = ?;";
 	$stmt = mysqli_stmt_init($conn1);
  //handle prepare error
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../errors.php?error=stmtfail");exit();}	
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../public/errors.php?error=stmtfail");exit();}	
  // bind, execute and store in $resultData
 	mysqli_stmt_bind_param($stmt, "s", $userinput);
 	mysqli_stmt_execute($stmt);
@@ -27,17 +27,17 @@ function userExists($conn1, $userinput) {
 // ----------take function userExists() to grab username and assoc data  */
 function userLogin($conn1,$userinput,$passinput) {
 	$userExists = userExists($conn1, $userinput); //error handle (change below error for production)
-	if ($userExists === false) {header("location: ../errors.php?error=invalidusername"); exit();}
+	if ($userExists === false) {header("location: ../public/errors.php?error=invalidusername"); exit();}
 //call hashed DB password and verify against user entered password
 	$savedhash = $userExists["EmployeePassword"];
 	$checkpass = password_verify($passinput, $savedhash);
 // error handle
-	if ($checkpass === false) {header("location: ../errors.php?error=WrongCredentials"); exit();}
+	if ($checkpass === false) {header("location: ../public/errors.php?error=WrongCredentials"); exit();}
 	else if ($checkpass === true) { // if true, start session with two session variables
 		session_start();
 		$_SESSION["userid"] = $userExists["EmployeeID"];
 		$_SESSION["user"] = $userExists["EmployeeUsername"];
-		header("location: ../loggedin/home.php"); // redirect to logged in home page
+		header("location: loggedin/home.php"); // redirect to logged in home page
 	}
 }
 // -------- Add Employee Error Handles ------- // fn called in phpscripts/addemployee.php
@@ -64,7 +64,7 @@ function createUser($conn1, $newname, $newuser, $prehash) {
 	$stmt = mysqli_stmt_init($conn1);
 //------error handle for stmt-------//
 	if (!mysqli_stmt_prepare($stmt,$sql)) {
-		header("location: ../../errors.php?error=CreateUserStmtFailed");
+		header("location: ../../../public/errors.php?error=CreateUserStmtFailed");
 		exit();
 	} // hash the password  for db storage
 	$hashpass = password_hash($prehash, PASSWORD_DEFAULT);
@@ -72,7 +72,7 @@ function createUser($conn1, $newname, $newuser, $prehash) {
 	mysqli_stmt_bind_param($stmt, "sss", $newname, $newuser, $hashpass);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../../loggedin/employees.php?status=UpdatedSuccessfully");
+	header("location: ../../../public/loggedin/employees.php?status=UpdatedSuccessfully");
 }	//--- Update Existing Entry  ---\\    //
 // ------------//|\\---------------\\ // check for empty inputs
 function emptyUpdateField($EmployeeID, $EmployeeName, $EmployeeUsername) {
@@ -87,7 +87,7 @@ function checkEID($conn1, $EmployeeID) {
 	$sql = "SELECT * FROM Employees WHERE EmployeeID = ?;";
 	$stmt = mysqli_stmt_init($conn1);
 	//------------------------------ prepare
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../errors.php?error=checkEIDstmtfail");exit();}
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../../public/errors.php?error=checkEIDstmtfail");exit();}
 	//------------------------------ bind/execute	
 	mysqli_stmt_bind_param($stmt, "i", $EmployeeID);
 	mysqli_stmt_execute($stmt);
@@ -104,12 +104,12 @@ function editEmployee($conn1, $EmployeeName, $EmployeeUsername, $EIDint) {
 	$sql = "UPDATE Employees SET EmployeeName = ?, EmployeeUsername = ? WHERE EmployeeID = ?;";
 	$stmt = mysqli_stmt_init($conn1); 
 
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../errors.php?error=updatestmtfail");exit();}
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../../public/errors.php?error=updatestmtfail");exit();}
 	
 	mysqli_stmt_bind_param($stmt, "ssi", $EmployeeName, $EmployeeUsername, $EIDint);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../../loggedin/employees.php");
+	header("location: ../../../public/loggedin/employees.php");
 }
 
 function deleteEmployee($conn1, $EIDint) {
@@ -117,12 +117,12 @@ function deleteEmployee($conn1, $EIDint) {
 	$sql = "DELETE FROM Employees WHERE EmployeeID = ?;";
 	$stmt = mysqli_stmt_init($conn1);
 
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../errors.php?error=deletestmtfail");exit();}
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../../public/errors.php?error=deletestmtfail");exit();}
 
 	mysqli_stmt_bind_param($stmt, "i", $EIDint);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../../loggedin/employees.php");
+	header("location: ../../../public/loggedin/employees.php");
 }
 
 //--------------------------------------------------------------------------------------------//
@@ -132,33 +132,33 @@ function deleteEmployee($conn1, $EIDint) {
 function createEvent($conn1, $customer, $dateformat, $timeformat, $address) {
 	$sql = "INSERT INTO Appointments (Customer, ApptDate, ApptTime, ApptAddress) VALUES (?,?,?,?);";
 	$stmt = mysqli_stmt_init($conn1);
-	if (!mysqli_stmt_prepare($stmt,$sql)) {header("location: ../../errors.php?error=CreateEventStmtFail");exit();}
+	if (!mysqli_stmt_prepare($stmt,$sql)) {header("location: ../../../public/errors.php?error=CreateEventStmtFail");exit();}
 	mysqli_stmt_bind_param($stmt,"ssss", $customer, $dateformat, $timeformat, $address);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../../loggedin/events.php");
+	header("location: ../../../public/loggedin/events.php?eventCreated");
 }
 
 function editEvent($conn1, $customer, $dateformat, $timeformat, $address, $selectedAppt) {
 	$sql = "UPDATE Appointments SET Customer = ?, ApptDate = ?, ApptTime = ?, ApptAddress = ? WHERE ApptID = ?;";
 	$stmt = mysqli_stmt_init($conn1);
 
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../errors.php?error=editEventStmtFail");}
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../../public/errors.php?error=editEventStmtFail");}
 
 	mysqli_stmt_bind_param($stmt, "ssssi", $customer, $dateformat, $timeformat, $address, $selectedAppt);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../../loggedin/events.php");
+	header("location: ../../../public/loggedin/events.php");
 }
 
 function deleteEvent($conn1,$apptInt) {
 	$sql = "UPDATE Appointments SET Active = 0 WHERE ApptID = ?;";
 	$stmt = mysqli_stmt_init($conn1);
-	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../errors.php?error=hideEventSTMTFail");exit();}
+	if (!mysqli_stmt_prepare($stmt, $sql)) {header("location: ../../../public/errors.php?error=hideEventSTMTFail");exit();}
 	mysqli_stmt_bind_param($stmt, "i", $apptInt);
 	mysqli_stmt_execute($stmt);
 	mysqli_stmt_close($stmt);
-	header("location: ../../loggedin/events.php");
+	header("location: ../../../public/loggedin/events.php");
 
 }
 

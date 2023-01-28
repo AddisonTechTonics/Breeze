@@ -12,5 +12,4 @@ $fname = $_POST['fname'];
 $lname = $_POST['lname'];
 
 if (ctype_digit($fname) != false) {
-  header("location: error.php");
 }

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breeze</title>
+</head>
+<body>
+  
+  <h1>Log In</h1>
+  <form action="php/auth.php" method="post">
+
+    <label for="login">Email Address:</label><br>
+    <input type="email" name="login" id="login" maxlength="32">
+    <br>
+    <label for="auth">Password:</label><br>
+    <input type="password" name="auth" id="auth" maxlength="32">
+    <br>
+    <input type="submit" name="submitlog" id="submitlog">
+
+  </form>
+
+  <h2>Sign Up</h2>
+  <form action="php/signup.php" method="post">
+
+    <label for="fname">First Name:</label><br>
+    <input type="text" name="fname" id="fname" maxlength="15">
+    <br>
+    <label for="lname">Last Name:</label><br>
+    <input type="text" name="lname" id="lname" maxlength="16">
+    <br>
+    <label for="uname">Desired Username:</label><br>
+    <input type="text" name="uname" id="uname" maxlength="18">
+    <br>
+    <label for="newpass">Create A Password:</label><br>
+    <input type="password" name="newpass" id="newpass" maxlength="36">
+    <br>
+    <label for="checkpass">Verify Password:</label><br>
+    <input type="password" name="checkpass" id="checkpass" maxlength="36">
+    <br>
+    <input type="submit" name="newuser" id="newuser">
+
+  </form>
+
+</body>
+</html>
